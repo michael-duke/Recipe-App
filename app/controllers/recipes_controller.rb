@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show edit update destroy]
+  before_action :set_recipe, only: %i[show destroy]
   before_action :set_user, only: %i[index show create]
 
   # GET /recipes or /recipes.json
@@ -21,25 +21,22 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(user: @user, **recipe_params)
 
-    respond_to do |format|
-      if @recipe.save
-        format.html { redirect_to user_recipes_path, success: 'Recipe was successfully created.' }
-        format.json { render :show, status: :created, location: @recipe }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
-      end
+    if @recipe.save
+      flash[:success] = 'Recipe was successfully created.'
+    else
+      flash[:error] = 'Error: Recipe could not be created'
     end
+    redirect_to user_recipes_url
   end
 
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
-    @recipe.destroy
-
-    respond_to do |format|
-      format.html { redirect_to recipes_url, success: 'Recipe was successfully destroyed.' }
-      format.json { head :no_content }
+    if @recipe.destroy
+      flash[:success] = 'Recipe was successfully deleted.'
+    else
+      flash[:error] = 'Error: Recipe could not be deleted'
     end
+    redirect_to user_recipes_url
   end
 
   private
