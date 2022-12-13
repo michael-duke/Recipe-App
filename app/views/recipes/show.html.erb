@@ -3,7 +3,7 @@
 <%= render @recipe %>
 
 <div>
-  <%= link_to "Back to recipes", recipes_path %>
+  <%= link_to "Back to recipes", user_recipes_path %>
 
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+  <%= button_to "Destroy this recipe", user_recipe_path(@user,@recipe), method: :delete %>
 </div>
