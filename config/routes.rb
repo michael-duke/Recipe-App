@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'general_shopping_list/index'
 
   root to: 'users#index'
 
