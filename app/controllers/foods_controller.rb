@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: %i[show destroy]
+  before_action :set_user, only: %i[index show create]
 
   def index
     @foods = @user.foods
