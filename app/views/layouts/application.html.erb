@@ -13,6 +13,11 @@
   </head>
 
   <body>
+    <% if flash[:success] %>
+      <div class="notice"><%= flash[:success] %></div>
+    <% else flash[:error] %>
+      <div class="alert"><%= flash[:error] %></div>
+    <% end %>
     <%= yield %>
     <%= render "layouts/bottom_header" %>
   </body>
