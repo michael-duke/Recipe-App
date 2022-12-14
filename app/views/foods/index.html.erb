@@ -1,14 +1,44 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Foods</h1>
+<h1 class="text-2xl text-center mb-3">Your Foods</h1>
 
-<div id="foods">
-  <% @foods.each do |food| %>
-    <%= render food %>
-    <p>
-      <%= link_to "Open Food", user_food_path(@user, food), class: 'button-2' %>
-    </p>
+<div class="flex flex-col mx-auto w-10/12">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full">
+          <thead class="bg-gray-800 border-b">
+            <tr class="">
+              <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
+                Food
+              </th>
+              <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
+                Measurement Unit
+              </th>
+              <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
+                Unit_Price
+              </th>
+              <th scope="col" class="text-sm text-center font-medium text-white px-6 py-4 text-left">
+               Action
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <%@foods.each do |food| %>
+              <%= render food %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <%= link_to new_user_food_path, class: "flex items-center gap-2 button button-blue bg-blue-300 w-max" do %>
+    <span class="whitespace-nowrap"><%= 'New food' %> </span>
+    <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+    </svg>
   <% end %>
 </div>
 
-<%= link_to "New food", new_user_food_path %>
+
+
