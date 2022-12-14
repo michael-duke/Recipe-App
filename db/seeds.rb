@@ -7,8 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 users = User.create([
-    { name: 'Samiullah'},
-    { name: 'Michael'}
+    { name: 'Samiullah', email: 'samiullahk997@gmail.com', password: 'samiullahk997' },
+    { name: 'Michael', email: 'michael@rebels.com', password: 'michael'}
 ])
 
 foods = Food.create([

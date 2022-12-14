@@ -12,6 +12,12 @@ gem 'sprockets-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
+# Use Rubocop for linters
+gem 'rubocop', '>= 1.0', '< 2.0'
+
+# Use for Devise Authentication
+gem 'devise'
+
 # Use for hiding credentials
 gem 'dotenv-rails'
 
