@@ -17,19 +17,19 @@ class RecipeFoodsController < ApplicationController
 
     if @recipe_food.save
       flash[:success] = 'Recipe food was successfully created.'
+      redirect_to user_recipe_url(@user, @recipe)
     else
-      flash.now[:error] = 'Error: Recipe food could not be created'
+      render :new, status: :unprocessable_entity
     end
-    redirect_to user_recipe_url(@user, @recipe)
   end
 
   def update
     if @recipe_food.update(food: @food, quantity: recipe_food_params[:quantity])
       flash[:success] = 'Recipe food was successfully updated.'
+      redirect_to user_recipe_url(@user, @recipe)
     else
-      flash.now[:error] = 'Error: Recipe food could not be updated'
+      render :edit, status: :unprocessable_entity
     end
-    redirect_to user_recipe_url(@user, @recipe)
   end
 
   def destroy
