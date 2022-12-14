@@ -20,7 +20,7 @@
               <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
                 Value
               </th>
-              <th colspan="2" class="text-sm font-medium text-white px-6 py-4 text-left">
+              <th colspan="2" class="text-sm text-center font-medium text-white px-6 py-4 text-left">
                Actions
               </th>
             </tr>
@@ -37,11 +37,11 @@
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                   <%= recipe_food.quantity * recipe_food.food.price %>
                 </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  <%= link_to "Modify", edit_user_recipe_recipe_food_path(@user, @recipe, recipe_food) %>
+                <td class="text-sm text-center text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  <%= link_to "Modify", edit_user_recipe_recipe_food_path(@user, @recipe, recipe_food), class: 'hover:bg-amber-400 hover:text-white button capitalize p-1' %>
                 </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  <%= button_to "Remove", user_recipe_recipe_food_path(@user, @recipe, recipe_food), method: :delete %>
+                <td class="text-sm text-center text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  <%= button_to "Remove", user_recipe_recipe_food_path(@user, @recipe, recipe_food), method: :delete, class: 'hover:bg-red-400 hover:text-white button capitalize p-1' %>
                 </td>
               </tr>
             <% end %>

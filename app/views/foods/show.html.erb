@@ -1,9 +1,33 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @food %>
+
+<div href="#" class="w-[30rem] border-2 border-b-4 border-gray-200 rounded-xl hover:bg-gray-50">
+  <div class="grid grid-cols-6 p-5 gap-y-2">
+
+    <!-- Food Picture -->
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Foods_-_Idil_Keysan_-_Wikimedia_Giphy_stickers_2019.gif" class="max-w-20 max-h-20 rounded-full" />
+    </div>
+
+    <!-- Description -->
+    <div class="col-span-5 md:col-span-4 ml-4">
+      <p class="text-sky-500 font-bold text-lg"> <%= @food.name %> </p>
+      <p class="text-gray-600 font-bold"> [Measurement Unit] <%= @food.measurement_unit.capitalize %> </p>
+      <p class="text-gray-400 underline underline-offset-4 decoration-amber-600"> Quantity in store: 
+      <span class="text-sky-500 font-semibold"><%= @food.quantity %></span> </p>
+    </div>
+
+    <!-- Price -->
+    <div class="flex col-start-2 ml-4 md:col-start-auto md:ml-0 md:justify-end">
+      <p class="rounded-lg text-sky-500 font-bold bg-sky-100  py-1 px-3 text-sm w-fit h-fit"> 
+        $ <%= @food.price %>
+      </p>
+    </div>
+  </div>
+</div>
 
 <div>
   <%= link_to "Back to foods", user_foods_path %>
 
-  <%= button_to "Destroy this food", user_food_path(@user,@food), method: :delete %>
+  <%# button_to "Destroy this food", user_food_path(@user,@food), method: :delete %>
 </div>

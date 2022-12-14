@@ -1,18 +1,22 @@
-<div>
-<p>
-    <strong>Name:</strong>
+<tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+  <td class="group/food flex items-center cursor-pointer text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
     <%= food.name %>
-  </p>
-  <p>
-    <strong>Measurement unit:</strong>
+    <%= link_to user_food_path(@user, food), class: 'group/open text-slate-500 font-bold invisible flex items-center p-1.5 rounded-[12px] hover:bg-slate-200 ml-8 group-hover/food:visible' do %>
+      <%= 'Open' %>
+      <span class="ml-2">
+        <svg class="h-4 w-4 group-hover/open:translate-x-0.5 group-hover/open:text-slate-500 transition duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+      </span>
+    <% end %>
+  </td>
+  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
     <%= food.measurement_unit %>
-  </p>
-  <p>
-    <strong>Price:</strong>
-    $<%= food.price %>
-  </p>
-  <p>
-    <strong>Quantity:</strong>
-    <%= food.quantity %>
-</p>
-</div>
+  </td>
+  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+    <%= food.price %>
+  </td>
+  <td class="text-sm text-center text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+    <%= button_to "Remove", user_food_path(@user, food), method: :delete , class: 'hover:bg-red-400 hover:text-white button capitalize p-1' %>
+  </td>
+</tr>
