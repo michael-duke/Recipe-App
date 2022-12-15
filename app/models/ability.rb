@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -14,9 +12,9 @@ class Ability
     user ||= User.new # guest user (not logged in)
 
     if user.present?
-      can :manage, Food, user: user
-      can :manage, RecipeFood, user: user
-      can :manage, Recipe, user: user
+      can(:manage, Food, user:)
+      can(:manage, RecipeFood, user:)
+      can :manage, Recipe, user:
     else
       can :read, :all # user(not admin) can read all the blogs
     end
