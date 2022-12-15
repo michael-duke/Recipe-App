@@ -63,6 +63,12 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  # Use for testing rails models, controllers
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
+  gem 'rswag-specs'
+  # Use database_cleaner for making Capybara testing
+  gem 'database_cleaner'
 end
 
 group :development do
