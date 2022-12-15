@@ -4,7 +4,7 @@
     <div class="error"><%= flash[:error] %></div>
 <% end %>
 
-<h1>Recipes</h1>
+<h1 class="text-2xl text-center mb-3">Recipes</h1>
 
 <div id="recipes">
   <% @recipes.each do |recipe| %>
@@ -15,4 +15,6 @@
   <% end %>
 </div>
 
-<%= link_to "New recipe", new_user_recipe_path %>
+<% if can? :manage, @recipes.first %>
+  <%= link_to "New recipe", new_user_recipe_path %>
+<% end %>

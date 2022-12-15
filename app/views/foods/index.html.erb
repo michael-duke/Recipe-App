@@ -4,7 +4,7 @@
     <div class="error"><%= flash[:error] %></div>
 <% end %>
 
-<h1 class="text-2xl text-center mb-3">Your Foods</h1>
+<h1 class="text-2xl text-center mb-3">Food List</h1>
 
 <div class="flex flex-col mx-auto w-10/12">
   <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -22,6 +22,9 @@
               <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
                 Unit_Price
               </th>
+              <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
+                Quantity
+              </th>
               <th scope="col" class="text-sm text-center font-medium text-white px-6 py-4 text-left">
                Action
               </th>
@@ -36,11 +39,13 @@
       </div>
     </div>
   </div>
-  <%= link_to new_user_food_path, class: "mb-4 flex items-center gap-2 button button-blue bg-blue-300 w-max" do %>
-    <span class="whitespace-nowrap"><%= 'New food' %> </span>
-    <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-    </svg>
+  <% if can? :manage, @foods.first %>
+    <%= link_to new_user_food_path, class: "mb-4 flex items-center gap-2 button button-blue bg-blue-300 w-max" do %>
+      <span class="whitespace-nowrap"><%= 'New food' %> </span>
+      <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+      </svg>
+    <% end %>
   <% end %>
 </div>
 
