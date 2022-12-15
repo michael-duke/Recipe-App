@@ -16,7 +16,17 @@
   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
     <%= food.price %>
   </td>
+  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+    <%= food.quantity %>
+  </td>
+  <% if can? :destroy, food %>
   <td class="text-sm text-center text-gray-900 font-light px-6 py-4 whitespace-nowrap">
     <%= button_to "Remove", user_food_path(@user, food), method: :delete , class: 'hover:bg-red-400 hover:text-white button capitalize p-1' %>
   </td>
+  <% end %>
+  <% if cannot? :destroy, food %>
+  <td class="text-sm text-center text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+    <span class="hover:bg-purple-400 hover:text-white button capitalize p-1">No actions for you here</span>
+  </td>
+  <% end %>
 </tr>
