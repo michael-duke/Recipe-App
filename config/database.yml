@@ -84,4 +84,5 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV['POSTGRES_DB'] %>
+  database: Recipe_App_production
+  url: <%= ENV["DATABASE_URL"] %>
