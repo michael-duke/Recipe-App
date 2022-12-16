@@ -1,12 +1,11 @@
 <%= link_to user_path(user) do %>
-  <li class="user ml-2 mt-4 flex items-center gap-10">
-    <div class="user-image">
-      <%# <% image_tag user.photo, alt: "#{user.name}-avatar", class: 'w-36 h-36 object-cover object-center rounded-[50%]' %>
-    </div>
-    <div class="user-info w-10/12 border border-red flex flex-col">
+  <li class="user mt-4 flex items-center gap-10">
+    <div class="user-info w-10/12 border border-red flex justify-between p-4 items-center">
       <h3 class="username text-2xl ml-2"><%= user.name %></h3>
-      <span class="self-end mr-2">Number of Foods: <%= user.foods.count %></span>
-      <span class="self-end mr-2">Number of Recipes: <%= user.recipes.count %></span>
+      <div class="flex flex-col self-end">
+        <span class="mr-2">Number of Foods: <%= user.foods.count %></span>
+        <span class="mr-2">Number of Recipes: <%= user.recipes.count %></span>
+      </div>
     </div>
   </li>
 <% end %>

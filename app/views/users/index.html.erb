@@ -1,6 +1,5 @@
-<% content_for :title, "Blog App" %>
-<h1>Users#index</h1>
-<section class="users-container">
+<% content_for :title, "Recipe App" %>
+<section class="users-container flex flex-col justify-center w-8/12 mx-auto">
   <% @users.each do |user| %>
     <%= render "user", user: user %>
   <% end %>
