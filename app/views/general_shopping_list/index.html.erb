@@ -1,0 +1,49 @@
+<h1 class="text-2xl text-center mb-3 underline decoration-purple-500 underline-offset-4">General Shopping List for
+ <span class="bg-purple-500 text-white pt-1.5 px-1"><%= @recipe.name %></span>
+</h1>
+
+<% if can? :manage, @recipe %>
+  <% if @missing_ingredients.count == 0 %>
+    <p class="mt-4 bg-green-600 text-white w-max mx-auto text-2xl font-semibold"> 😊 You have all the ingredients you need for this recipe!</p>
+  <% else %>
+  <div class="flex justify-center gap-20 my-5">
+    <p>Amount of ingredients needed to buy: 
+      <button class="animate-bounce bg-orange-500 px-2 py-1 text-white font-bold rounded-md text-base hover:animate-none"><%= @missing_ingredients.count %> </button>
+    </p>
+    <p>Total value of foods needed 
+      <button class="animate-wiggle bg-emerald-500 px-2 py-1 text-white font-bold rounded text-base">$<%= @total_price %> </button>
+    </p>
+  </div>
+
+  <div class="flex flex-col mx-auto w-6/12">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="overflow-hidden">
+          <table class="min-w-full">
+            <thead class="bg-gray-800 border-b">
+              <tr class="">
+                <th scope="col" class="text-sm  font-medium text-white px-6 py-4 text-left">
+                  Food
+                </th>
+                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
+                  Quantity
+                </th>
+                <th scope="col" class="text-sm  font-medium text-white px-6 py-4 text-left">
+                Price
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <%@missing_ingredients.each do |ingredient| %>
+                <%= render "ingredient", ingredient: ingredient %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+<% else %>
+  <p>Sorry you don't have permission to view this page</p>
+<% end %>

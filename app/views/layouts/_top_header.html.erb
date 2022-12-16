@@ -1,0 +1,28 @@
+<!-- Load Tailwind Play CDN-->
+<%= javascript_include_tag 'https://cdn.tailwindcss.com' %>
+<script>
+tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          clifford: '#eecccc'
+        },
+        keyframes: {
+          wiggle: {
+            '0%, 100%': { transform: 'rotate(-10deg)' },
+            '50%': { transform: 'rotate(10deg)' }
+          }
+        },
+        animation: {
+          wiggle: 'wiggle .5s ease-in-out infinite'
+        }
+      }
+    }
+  }
+</script>
+
+<!-- Load Material Tailwind from Creative Tim-->
+<!-- stylesheet -->
+<%= stylesheet_link_tag "https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css" %>
+<!-- script -->
+<%= javascript_include_tag 'https://unpkg.com/@material-tailwind/html@latest/scripts/script-name.js' %>

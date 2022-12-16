@@ -1,0 +1,41 @@
+<%= form_with model: recipe, url: user_recipes_path, class: 'flex flex-col items-center w-6/12 mx-auto' do |form| %>
+  <% if recipe.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+        <% recipe.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group input-group-outline mb-3">
+    <label class="form-label">Name</label>
+    <%= form.text_field :name, class: 'form-control focus:border-blue-600' %>
+  </div>
+
+  <div class="input-group input-group-outline mb-3">
+    <label class="form-label">Preparation Time</label>
+    <%= form.text_field :preparation_time, class: 'form-control focus:border-blue-600' %>
+  </div>
+
+  <div class="input-group input-group-outline mb-3">
+    <label class="form-label">Cooking Time</label>
+    <%= form.number_field :cooking_time, class: 'form-control focus:border-blue-600' %>
+  </div>
+
+  <div class="input-group input-group-outline mb-6 bg-green-50">
+    <label class="form-label">Description</label>
+    <%= form.text_area :description, class: "form-control", rows: "7" %>
+  </div>
+
+  <label class="self-start mt-3 inline-flex items-center">
+    <%= form.check_box :public, class: 'checkbox absolute z-10 cursor-pointer opacity-0 accent-green-500' %>
+    <div class="form-check-input"></div>
+    <span class="text-gray-700 cursor-pointer select-none">Public</span>
+  </label>
+
+  <%= form.button "Create Recipe", type: "submit", class: "button mb-5 button-green bg-green-300", 'data-ripple-light': true %>
+<% end %>
