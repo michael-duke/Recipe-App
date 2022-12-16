@@ -11,13 +11,14 @@ class Ability
     #
     user ||= User.new # guest user (not logged in)
 
-    if user.present?
-      can(:manage, Food, user:)
-      can(:manage, RecipeFood, user:)
-      can :manage, Recipe, user:
-    else
-      can :read, :all # user(not admin) can read all the blogs
+    return unless user.present?
+
+    can(:manage, Food, user:)
+    can(:manage, Recipe, user:)
+    can :manage, RecipeFood do |food_ingredient|
+      food_ingredient.recipe.user == user
     end
+    can :read, :all
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions

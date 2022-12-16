@@ -15,7 +15,7 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = @user.foods.new(**food_params)
+    @food = current_user.foods.new(**food_params)
 
     if @food.save
       flash[:success] = 'Food saved successfully'

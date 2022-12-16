@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
 
   # POST /recipes or /recipes.json
   def create
-    @recipe = Recipe.new(user: @user, **recipe_params)
+    @recipe = Recipe.new(user: current_user, **recipe_params)
 
     if @recipe.save
       flash[:success] = 'Recipe was successfully created.'
