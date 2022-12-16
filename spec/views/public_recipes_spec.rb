@@ -23,7 +23,7 @@ RSpec.feature 'Public Recipes', type: :feature do
   it 'opens to Recipe Details page ' do
     visit public_recipes_path
     within("#recipe_#{@recipe.id}") do
-      click_on 'Open Recipe'
+      click_on @recipe.name
     end
     expect(current_path).to match user_recipe_path(@user, @recipe)
   end
