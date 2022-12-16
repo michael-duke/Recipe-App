@@ -9,9 +9,6 @@
 <div id="recipes">
   <% @recipes.each do |recipe| %>
     <%= render recipe %>
-    <p>
-      <%= link_to "Open Recipe", user_recipe_path(@user, recipe), class: 'button-2' %>
-    </p>
   <% end %>
 </div>
 
