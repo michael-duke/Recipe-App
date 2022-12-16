@@ -26,6 +26,10 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  padding-bottom: 6.25rem;
+}
+
 /* Scrollbar section */
 ::-webkit-scrollbar {
   width: 0.3125rem;
