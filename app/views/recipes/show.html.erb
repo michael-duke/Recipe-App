@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 <% if can? :manage, @recipe or @recipe.public %>
-  <%= render @recipe %>
+  <%= render "recipe_detail", recipe: @recipe %>
   <div class="flex flex-col mx-auto w-11/12">
     <% if can? :manage, @recipe %>
       <div class="flex gap-10 mb-5">
