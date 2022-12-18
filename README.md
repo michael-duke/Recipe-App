@@ -67,17 +67,15 @@ After you're finished please remove all the comments and instructions!
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-  </ul>
+  <summary>Ruby</summary>
 </details>
 
 <details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
+  <summary>Ruby on Rails</summary>
+</details>
+
+<details>
+  <summary>Tailwind CSS / Material Tailwind </summary>
 </details>
 
 <details>
@@ -100,7 +98,7 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+- [RecipeOnRails](https://recipeonrails.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
