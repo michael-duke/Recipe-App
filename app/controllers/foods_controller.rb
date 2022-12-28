@@ -18,11 +18,9 @@ class FoodsController < ApplicationController
     @food = current_user.foods.new(**food_params)
 
     if @food.save
-      flash[:success] = 'Food saved successfully'
-      redirect_to user_foods_url
+      redirect_to user_foods_url, notice: 'Food was successfully created.'
     else
-      flash.now[:error] = 'Error: Food could not be saved'
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
