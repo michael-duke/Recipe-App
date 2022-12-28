@@ -22,21 +22,17 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(user: current_user, **recipe_params)
 
     if @recipe.save
-      flash[:success] = 'Recipe was successfully created.'
+      redirect_to user_recipes_url, notice: 'Recipe was successfully created.'
     else
-      flash[:error] = 'Error: Recipe could not be created'
+      render :new, status: :unprocessable_entity
     end
     redirect_to user_recipes_url
   end
 
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
-    if @recipe.destroy
-      flash[:success] = 'Recipe was successfully deleted.'
-    else
-      flash[:error] = 'Error: Recipe could not be deleted'
-    end
-    redirect_to user_recipes_url
+    @recipe.destroy
+    redirect_to user_recipes_url, notice: 'Recipe was successfully destroyed.'
   end
 
   private
