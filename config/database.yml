@@ -26,7 +26,7 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV['POSTGRES_DB'] %>
+  database: <%= ENV['POSTGRES_DB'] %> #Recipe_App_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -60,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: <%= ENV['POSTGRES_TEST_DB'] %>
+  database: <%= ENV['POSTGRES_TEST_DB'] %> #Recipe_App_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -84,5 +84,5 @@ test:
 #
 production:
   <<: *default
-  database: Recipe_App_production
-  url: <%= ENV["DATABASE_URL"] %>
+  database: <%= ENV['POSTGRES_DB'] %> #Recipe_App_production
+  url: <%= ENV["DATABASE_URL"] %> #Railway
