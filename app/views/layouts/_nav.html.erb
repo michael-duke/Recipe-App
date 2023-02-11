@@ -24,12 +24,11 @@
     <span class="whitespace-nowrap"><%= 'Public Recipes' %> </span>
   <% end %>
   
-  <div class="menu ml-auto">
+  <div class="ml-auto">
     <button
       class="<%= current_user ? 'button button-cyan' : 'border bg-amber-500 w-max text-gray-100 p-2 hover:text-amber-500 hover:bg-transparent' %>"
-      menu-trigger="true"
-      aria-expanded="true"
       data-ripple-light="true"
+      data-popover-target="menu"
     >
       <% if current_user %>
         Hello, <%= current_user.name %>
@@ -39,8 +38,8 @@
         Menu
       <% end %>
     </button>
-    <ul class="dropdown-menu menu-right p-2">
-      <li class="mb-2">
+    <ul role="menu" data-popover="menu" data-popover-placement="bottom" class="p-2">
+      <li role="menuitem" class="mb-2">
         <div class="menu-item" href="#">
           <% if current_user %>
             <div class="flex items-center py-1">
@@ -64,7 +63,7 @@
         </div>
       </li>
       <% unless current_user %>
-        <li class="mb-2">
+        <li role="menuitem" class="mb-2">
           <div class="menu-item">
             <div class="flex items-center py-1">
               <%= link_to new_user_session_path, class: 'mr-8 flex items-center gap-2' do %>
@@ -76,7 +75,7 @@
             </div>
           </div>
         </li>
-        <li>
+        <li role="menuitem">
           <div class="menu-item">
             <div class="flex items-center py-1">
               <%= link_to new_user_registration_path, class: 'mr-8 flex items-center gap-2' do %>
