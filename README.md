@@ -60,7 +60,7 @@ After you're finished please remove all the comments and instructions!
 # 📖 Recipe App <a name="about-project"></a>
 ![blog-gif](https://media3.giphy.com/media/svdsMNSzOShzO/giphy.gif)
 
-**Recipe App** will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
+**Recipe App** allows you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
 
 ## 🛠 Built With <a name="built-with"></a>
 
